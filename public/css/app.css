@@ -1,8 +1,9 @@
-
-
+body{
+  background-color: #F2F5F7  ;
+}
 #neubar {
     background: #DDDDDA;
-    box-shadow: 4px 6px 12px rgba(0,0,0,0.4)
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.4)
   }
 
   .navbar-brand {
@@ -12,12 +13,81 @@
     color: #454545;
   }
   
-  .nav-item .active {
-    border-radius: 6px;
-    background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
-    box-shadow:  4px 4px 8px #ddc1a0,
-                 -4px -4px 8px #f7e5cc;
+  .nav-item .nav-link{
+    font-weight: bold;
+    color: #000;
   }
+  .nav-item .active {
+    background-color: #f07655;
+    color: #fff;
+  }
+.custom-icon {
+  width: 24px;
+  height: 17px;
+  position: relative;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-icon {
+  width: 24px;
+  height: 17px;
+  position: relative;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-icon span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #f07655; /* Change this to the color you want */
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.2s ease-out;
+}
+
+.custom-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.custom-icon span:nth-child(2),
+.custom-icon span:nth-child(3) {
+  top: 7px;
+}
+
+.custom-icon span:nth-child(3) {
+  top: 14px;
+}
+
+/* Rotate first and third span to create the 3-stripe effect */
+.custom-icon span:nth-child(1) {
+  transform-origin: left center;
+}
+
+.custom-icon span:nth-child(3) {
+  transform-origin: left center;
+}
+
+/* Add a class to rotate the icon when the toggler is clicked */
+.navbar-toggler.rotate .custom-icon span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler.rotate .custom-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler.rotate .custom-icon span:nth-child(3) {
+  transform: rotate(-45deg);
+}
   #neubar .dropdown-menu a:hover {
     color: #454545
   }
@@ -25,7 +95,6 @@
     margin : auto 4px;
   }
   #neubar a {
-  
     padding-left:12px;
     padding-right:12px;
   }
@@ -35,47 +104,28 @@
   a.navbar-brand {
     color: #454545
   }
-  
-  .card {
-    border-radius: 0.5rem;
+
+  .btn-custom, .btn-custom:hover, .btn-custom:active, .btn-custom:visited {
+    background-color: #f07655 !important;
+    color: #fff;
+    font-weight: bolder;
+  }
+
+  .bg-custom {
+    background-color: #1bd948 !important;
+    color: #fff;
+  }
+  .bg-custom-nav {
+    background-color: #f07655 !important;
+    color: #fff;
+    font-weight: bold;
+  }
+  .bg-custom-nav:hover {
+    background-color: #fff !important;
+    color: #f07655;
+    font-weight: bold;
   }
   
-  .card-header {
-    border-radius: 0.5rem 0.5rem 0 0;
-  }
   
-  .form-label {
-    font-weight: 600;
-  }
-  
-  .form-check-label {
-    font-weight: 400;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
-  }
-  
-  .btn-primary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-  }
-  
-  .btn-primary:active {
-    background-color: #0062cc;
-    border-color: #005cbf;
-  }
-  
-  .card-footer a {
-    color: #007bff;
-  }
-  
-  .card-footer a:hover {
-    text-decoration: underline;
-  }
+
   
