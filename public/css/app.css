@@ -120,12 +120,11 @@ body{
     color: #fff;
     font-weight: bold;
   }
-  .bg-custom-nav:hover {
+  .bg-custom-nav .dropdown-item:hover{
     background-color: #fff !important;
-    color: #f07655;
+    color: #fff;
     font-weight: bold;
   }
-  
   
 
   

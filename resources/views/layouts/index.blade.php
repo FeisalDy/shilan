@@ -7,6 +7,9 @@
     <title>Shi Lan</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Cropper.js library and CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
+    <script src="https://unpkg.com/cropperjs"></script>
 </head>
 
 <body>
@@ -24,6 +27,12 @@
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item p-1">
+                        <a class="nav-link {{ (request()->is('home')) ? 'active' : '' }}" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item p-1">
+                        <a class="nav-link {{ (request()->is('novels')) ? 'active' : '' }}" href="/novels">Novels</a>
+                    </li>
                     @guest
                     <li class="nav-item p-1">
                         <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
@@ -33,25 +42,23 @@
                     </li>
                     @else
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Bookmarks</a>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                {{ ucfirst(Auth::user()->name) }}
                             </a>
                             <ul class="dropdown-menu bg-custom-nav">
-                                <li><a class="dropdown-item bg-custom-nav" href="{{ route('logout') }}" onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">Logout</a>
+                                <li class="nav-item">
+                                    <a class="dropdown-item bg-custom-nav" href="#">Bookmarks</a>
+                                </li>
+                                @if(Auth::user()->role =='admin')
+                                <li class="nav-item">
+                                    <a class="dropdown-item bg-custom-nav" href="{{ route('novels.create') }}">Upload Novels</a>
+                                </li>
+                                @endif
+                                <li class="nav-item">
+                                    <a class="dropdown-item bg-custom-nav" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                     </form>
@@ -72,8 +79,9 @@
             </div>
         </div>
     </nav>
+    <br>
 
-    <div class="container">
+    <div class="container bg-white">
         <div class="p-2">
             @yield('content')
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

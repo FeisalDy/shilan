@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\NovelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/home', 'home')->name('home');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::resource('novels', NovelController::class);
