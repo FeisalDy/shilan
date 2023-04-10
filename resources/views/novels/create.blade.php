@@ -43,6 +43,4 @@
         <button type="submit" class="btn btn-custom">Submit</button>
     </form>
 </div>
-
-
 @endsection

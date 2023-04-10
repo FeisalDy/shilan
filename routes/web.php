@@ -16,8 +16,9 @@ use App\Http\Controllers\NovelController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('/home');
 });
+
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
